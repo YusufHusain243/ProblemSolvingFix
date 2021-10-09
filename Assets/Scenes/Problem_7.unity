@@ -887,8 +887,8 @@ MonoBehaviour:
     type: 3}
   minX: -7.87
   maxX: 7.87
-  minY: -5
-  maxY: 5
+  minY: -3.95
+  maxY: 3.95
 --- !u!4 &1548659902
 Transform:
   m_ObjectHideFlags: 0
