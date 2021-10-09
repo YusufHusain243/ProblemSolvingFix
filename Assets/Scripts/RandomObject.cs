@@ -10,7 +10,7 @@ public class RandomObject : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        int gameObjectAmount = Random.Range(0, 10);
+        int gameObjectAmount = Random.Range(5, 10);
         for (int i = 0; i < gameObjectAmount; i++)
         {
             float randomX = Random.Range(minX, maxX);
