@@ -8,6 +8,7 @@ TagManager:
   - Object
   - Spawner
   - Speed
+  - Enemy
   layers:
   - Default
   - TransparentFX
