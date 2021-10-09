@@ -9,7 +9,8 @@ public class Problem_9 : MonoBehaviour
     public float minX, maxX, minY, maxY;
     public Text scoreText;
     public int score;
-    public GameObject pedang;
+    public GameObject pedang, gameOver;
+    public bool dead = false;
 
     // Start is called before the first frame update
     void Start()
@@ -86,6 +87,9 @@ public class Problem_9 : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
+            dead = true;
+            gameOver.SetActive(true);
+            
             Destroy(this.gameObject);
         }
     }

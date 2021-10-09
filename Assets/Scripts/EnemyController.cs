@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyController : MonoBehaviour
 {
@@ -17,6 +18,21 @@ public class EnemyController : MonoBehaviour
     {
         Vector2 poss = GameObject.Find("Sphere").transform.position;
         transform.position = Vector2.MoveTowards(transform.position, poss, speed * Time.deltaTime);
+
+        GameObject sphere = GameObject.Find("Sphere");
+        Problem_9 problem_9 = sphere.GetComponent<Problem_9>();
+
+        if(problem_9.dead = true)
+        {
+            if (Input.GetKey(KeyCode.R))
+            {
+                SceneManager.LoadScene("Problem_9");
+            }
+        }
+        else
+        {
+            return;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
