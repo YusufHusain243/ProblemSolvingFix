@@ -885,10 +885,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameObject: {fileID: 6224065481955990779, guid: e365f01e2ea5534448bfa7fdaa3ae825,
     type: 3}
-  minX: -7.87
-  maxX: 7.87
-  minY: -5
-  maxY: 5
+  minX: -7.76
+  maxX: 7.76
+  minY: -3.92
+  maxY: 3.92
 --- !u!4 &1548659902
 Transform:
   m_ObjectHideFlags: 0
