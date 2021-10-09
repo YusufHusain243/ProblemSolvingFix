@@ -14,11 +14,25 @@ public class PagesManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        string sceneName = SceneManager.GetActiveScene().name;
 
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            if(sceneName != "Problem_10")
+            {
+                SceneManager.LoadScene("Problem_10");
+            }
+            else
+            {
+                Application.Quit();
+            }
+        }
+
+        DontDestroyOnLoad(this.gameObject);
     }
 
-    public void Restart()
+    public void LoadScene(string sceneName)
     {
-        SceneManager.LoadScene("Problem_9");
+        SceneManager.LoadScene(sceneName);
     }
 }
