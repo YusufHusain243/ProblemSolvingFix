@@ -12,11 +12,9 @@ public class SphereController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
 
-        transform.eulerAngles = new Vector3(transform.eulerAngles.x, Random.Range(0, 360), transform.eulerAngles.z);
-        Vector3 force = transform.forward;
-        force = new Vector3(force.x, 1, force.z);
+        Vector2 force = new Vector2(Random.Range(0, 360), Random.Range(0,360));
 
-        rb.AddForce(force * speed, ForceMode2D.Impulse);
+        rb.AddForce(force * speed * Time.deltaTime, ForceMode2D.Impulse);
     }
 
 }
