@@ -7,9 +7,9 @@ public class Problem_9 : MonoBehaviour
 {
     public float speed = 2.0f;
     public float minX, maxX, minY, maxY;
-    Vector2 pos;
     public Text scoreText;
-    int score;
+    public int score;
+    public GameObject pedang;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +25,8 @@ public class Problem_9 : MonoBehaviour
         if (horiz != 0 || vertic != 0)
         {
             Vector2 direction = new Vector2(horiz, vertic);
-            transform.Translate(direction * speed * Time.deltaTime);
+            transform.position += transform.up * speed * Time.deltaTime;
+            transform.rotation = Quaternion.LookRotation(Vector3.forward, direction);
         }
         else if (horiz == 0 || vertic == 0)
         {
@@ -42,12 +43,14 @@ public class Problem_9 : MonoBehaviour
 
     void InputMouse()
     {
-        pos = Input.mousePosition;
+        Vector3 pos = Input.mousePosition;
         pos = Camera.main.ScreenToWorldPoint(pos);
 
         if (pos.x > minX && pos.x < maxX && pos.y > minY && pos.y < maxY)
         {
+            transform.rotation = Quaternion.LookRotation(Vector3.forward, pos - transform.position);
             transform.position = Vector2.MoveTowards(transform.position, pos, speed * Time.deltaTime);
+            pos.z = 1.0f;
         }
         else
         {
@@ -69,10 +72,31 @@ public class Problem_9 : MonoBehaviour
             timeSpeed += 5.0f;
             Invoke("normalSpeed", timeSpeed);
         }
+
+        if(collision.gameObject.tag == "Pedang")
+        {
+            float timePedang = 5.0f;
+            pedang.SetActive(true);
+            timePedang += 5.0f;
+            Invoke("UnActivatedPedang", timePedang);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     void normalSpeed()
     {
         speed = 2.0f;
+    }
+
+    void UnActivatedPedang()
+    {
+        pedang.SetActive(false);
     }
 }

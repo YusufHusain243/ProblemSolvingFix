@@ -9,6 +9,8 @@ TagManager:
   - Spawner
   - Speed
   - Enemy
+  - Pedang
+  - SpawnerEnemy
   layers:
   - Default
   - TransparentFX
