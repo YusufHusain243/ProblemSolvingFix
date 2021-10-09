@@ -55,17 +55,19 @@ public class Problem_9 : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Object" || collision.gameObject.tag == "Speed")
         {
             score += 1;
         }
 
-        if(collision.gameObject.tag == "Speed")
+        if (collision.gameObject.tag == "Speed")
         {
+            float timeSpeed = 5.0f;
             speed += 3;
-            Invoke("normalSpeed", 5.0f);
+            timeSpeed += 5.0f;
+            Invoke("normalSpeed", timeSpeed);
         }
     }
 
